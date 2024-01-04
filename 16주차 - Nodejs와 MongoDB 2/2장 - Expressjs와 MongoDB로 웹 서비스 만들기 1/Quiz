@@ -1,0 +1,41 @@
+1. Template Engine
+ - HTML을 서버에서 데이터와 조합하여 보내주는 방식이다
+ - 템플릿 작성 문법과 HTML 변환기능을 포함한다
+ - Template Engine은 SSR을 구현하는 방법으로,
+   데이터를 서버에서 조합하여 작성된 html을 http 응답으로 전송하는 기능이다
+
+2. 웹 서비스의 CRUD
+ - CREATE, READ, UPDATE, DELETE
+    생성,  읽기,  갱신,   삭제
+
+3. REST API 구현에서 CRUD와 HTTP Method
+ - CREATE - POST
+ - UPDATE - PUT
+ - READ - GET
+ - DELETE - DELETE
+
+4. Mongoose를 이용해 Pagination을 구현하기 위해서는
+   한 페이지에 보일 자료의 개수를 limit으로 제한하고,
+   특정 페이지로 넘어가기 위해 skip으로 자료를 건너뛴다
+
+5. PM2
+ - PM2는 Node.js 프로세스를 관리하는 툴이다
+ - PM2를 이용해 파일 변경 시 자동으로 Node.js 프로세스를 재실행 할 수 있다
+ - PM2는 자동으로 오류로 종료된 Node.js 프로세스를 다시 실행한다
+ - PM2를 이용하면 한번에 여러 프로세스를 관리할 수 있다는 장점이 있다
+
+6. Pug 템플릿 엔진
+ - Pug 문법으로 작성된 템플릿을 HTML로 변환하는 기능을 제공한다
+ - 들여쓰기 표현식을 이용해 가독성이 좋다
+ - layout, include, mixin 등의 부가적인 기능을 제공한다
+
+7. 게시판에서의 CRUD
+ - 게시글의 목록이나 작성된 게시글을 볼 수 있다
+ - 작성된 게시글의 제목이나 내용을 수정할 수 있다
+ - 새로운 게시글을 작성할 수 있다
+ - 작성된 게시글을 삭제할 수 있다
+
+
+
+
+
