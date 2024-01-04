@@ -1,0 +1,133 @@
+1. 일반 집합 연산
+ - UNION, INTERSECT, EXCEPT, CROSS JOIN
+
+2. 집합 연산자 UNION과 UNION ALL의 가장 큰 차이는 중복에 대한 처리 여부이다
+   UNION 연산자는 중복 데이터에 대해 제거하여 결과를 출력하는 반면,
+   UNION ALL 연산자는 중복 데이터에 대해 별도 처리를 하지 않고 그대로 출력한다
+
+3. 집합 연산자를 이용한 쿼리 중, 데이터 연결 및 정렬과 중복을
+   제거해주는 명령어는 UNION 이다
+
+4. INTERSECT
+ - 두 개의 테이블에 대해 겹치는 부분을 추출하는 연산
+ - 공통된 부분에 대하여 추출하고, 중복된 결과는 제거한다
+ - 관계형 대수의 일반 집합 연산에서 교집합의 역할을 한다
+
+5. CONNECT_BY_ISLEAF
+계층형 질의에서 사용되는 키워드로, 해당 데이터가 현재 전개할 모든 데이터의 리프(최하위)
+데이터인지 값을 표시하는 키워드
+
+------------------------------------------------------
+1. Standard SQL
+관계형 대수라고도 불리는 Standard SQL은 관계형 데이터베이스에서 원하는 정보를 유도하기 위한 기본 연산 집합을 말합니다. 이는 일반 집합 연산과 순수 관계 연산을 포함합니다.
+
+일반집합연산 사진
+순수관계연산 사진
+
+2. 집합 연산자
+집합 연산자란 두 개 이상의 테이블에서 JOIN을 사용하지 않고 연관된 데이터를 조회하는 방법 중 하나입니다.
+집합 연산자를 사용하기 위해선 테이블에서 SELECT한 컬럼의 수와 각 컬럼의 데이터 타입이 테이블간 일치해야 합니다.
+
+Point I
+UNION: 두 개의 테이블을 하나로 만드는 연산
+
+SELECT * FROM ALPHA
+UNION
+SELECT * FROM BETA;
+UNION으로 테이블을 합칠 때 중복된 데이터는 제거되고, 이를 위해 정렬 과정이 발생
+관계형 대수의 일반 집합 연산에서 합집합의 역할과 같음
+ALPHA와 BETA 테이블의 데이터를 연결 및 정렬한 후 중복된 데이터를 제거하고 결과값 출력
+Point II
+UNION ALL: 중복을 제거하지 안고 두 개의 테이블을 하나로 만드는 연산으로, 중복 제거를 하지 않기 때문에 정렬도 하지 않습니다.
+
+SELECT * FROM ALPHA
+UNION ALL
+SELECT * FROM BETA;
+ALPHA와 BETA 테이블을 연결만 하여 출력
+Point III
+INTERSECT: 두 개의 테이블에서 겹치는 부분을 추출하는 연산
+
+추출 후에는 중복된 결과 제거
+관계형 대수의 일반 집합 연산에서 교집합의 역할
+SELECT A, B FROM ALPHA
+INTERSECT
+SELECT A, B FROM BETA;
+ALPHA와 BETA 테이블의 A, B 컬럼에서 겹치는 부분을 추출하고, 중복된 데이터를 제거하고 결과값 출력
+참고: INTERSECT는 Oracle/Maria DB에서는 지원되지만, MySQL에서는 지원되지 않기 때문에 추후 학습하는 JOIN 등을 활용해야 합니다.
+
+Point IV
+EXCEPT: 두 개의 테이블에서 겹치는 부분을 앞의 테이블에서 제외하여 추출하는 연산
+
+추출 후에는 중복된 결과 제거
+관계형 대수의 일반 집합 연산에서 차집합의 역할
+SELECT A, B FROM ALPHA
+EXCEPT
+SELECT A, B FROM BETA;
+ALPHA와 BETA 테이블의 A, B 컬럼에서 겹치는 부분을 제외한 후, 중복된 데이터를 제거하고 결과값 출력
+참고: EXCEPT는 Maria DB의 경우 10.3 버전부터 지원되지만, MySQL에서는 지원되지 않기 때문에 추후 학습하는 JOIN 등을 활용해야 합니다.
+
+3. 계층형 질의
+계층형 데이터란 동일 테이블에 계층적으로 상위와 하위가 있는 데이터를 말합니다. 계층형 데이터가 존재하는 경우, 데이터를 조회하기 위해 계층형 질의를 사용합니다.
+
+계층형 질의 예시: ORACLE, SQL Server
+Point I
+Oracle
+
+SELECT LEVEL, 자식 컬럼, 부모 컬럼, 원하는 컬럼
+FROM 테이블명
+START WITH 부모 컬럼 IS NULL
+--부모 컬럼이 NULL인 행이 가장 상위 (Root)가 됨
+CONNECT BY PRIOR 자식 컬럼 = 부모 컬럼;
+-- 상위 데이터와 하위 데이터의 연결 방식
+코드 예시 1
+
+SELECT LEVEL, 사원번호, 관리자 FROM 직원
+START WITH 관리자 IS NULL
+CONNECT BY PRIOR 사원번호 = 관리자
+
+코드 예시 2
+
+SELECT LEVEL, LPAD('', 4*(LEVEL-1)) || 사원번호, 관리자
+FROM 직원 START WITH 관리자 IS NULL CONNECT BY PRIOR 사원번호 = 관리자;
+LPAD(”, n)은 왼쪽에 n자리의 공백추가를 의미합니다.
+Root는 LEVEL 값이 1이기 때문에 4*(LEVEL-1) = 0 이 됩니다.
+
+사진1
+
+CONNECT BY 키워드 (Oracle)
+
+LEVEL: 검색 항목의 깊이를 의미하며, 계층구조에서 루트(최상의)의 레벨이 1
+CONNECT_BY_ROOT: 현재 전개할 데이터의 루트(최상위) 데이터 값 표시
+CONNECT_BY_ISLEAF: 현재 전개할 데이터가 리프(최하위) 데이터 인지에 대한 값 표시 (0 or 1)
+SYS_CONNECT_BY_PATH(A,B): 루트 데이터부터 현재까지 전개한 경로 표시 (A: 컬럼명, B: 구분자)
+Point II
+MySQL / MariaDB
+
+특정 버전 이후 CTE (Common Table Expression)을 이용하여 재귀 호출
+코드 예시
+
+WITH RECURSIVE CTE(member_id, manager_id, lvl)
+AS (
+    SELECT member_id, manager_id, 0 AS lvl
+    FROM MEMBER
+    WHERE manager_id IS NULL
+    --Oracle에서 START WITH와 동일한 쿼리
+         
+    UNION ALL
+    --테이블 합치기
+         
+    SELECT a.member_id, a.manager_id, b.lvl + 1
+    FROM MEMBER a
+    JOIN CTE AS b
+    ON a.manager_id = b.member_id
+    --Oracle에서 CONNECT BY와 동일한 쿼리
+)
+SELECT member_id, manager_id, lvl
+FROM CTE
+ORDER BY member_id, lvl;
+
+
+
+
+
+
