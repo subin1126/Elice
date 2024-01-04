@@ -1,0 +1,76 @@
+1. count는 검색한 결과 중, null인 데이터는 제외한 데이터의 개수를 가져오는 내장함수이다
+   count를 사용하여 book 테이블 안에 있는 id 컬럼의 개수는 검색하는 명령은 select count(id) from book; 이다
+
+2. LIMIT는 검색한 결과 중, 테이블에서 출력하고자 하는 데이터의 개수를 제한하는 내장함수 이다
+   limit을 사용하여 book 테이블 안에 있는 책 정보 5개만을 조회하는 명령은 select * from book limit 5; 이다
+
+3. SUM : 지정한 칼럼들의 값을 모두 더하여 총점을 구해주는 내장함수이다
+   AVG : 지정한 컬럼들의 평균값을 구해주는 내장함수이다
+
+   SUM을 사용하여 grade 테이블 안에 있는 math 칼럼의 값을 모두 더하여
+   총점을 구해주는 명령은 select sum(math) from grade;
+
+4. MAX : 테이블에 존재하는 데이터에서 최댓값을 가져오는 내장함수이다
+   MIN : 테이블에 존재하는 데이터에서 최솟값을 가져오는 내장함수이다
+
+   employees 테이블에서 가장 적은 연봉액이 얼마인지 조회하기 위해서는
+   select min(salary) from employees; 라는 명령을 사용해야 한다
+
+----------------------------------------------------------------
+
+SQL과 함수
+3장을 마친 여러분! 오늘도 수고하셨어요 🤓
+여러 함수를 배운 만큼 헷갈리기 쉽겠죠?
+지금 바로 복습 시작해 봅시다~
+
+
+
+1. COUNT
+COUNT: 검색한 데이터의 개수를 가져오는 내장함수 (NULL인 데이터는 제외)
+
+Point I
+
+SELECT COUNT(id) FROM book;
+book 테이블 안에 있는 id 컬럼의 개수를 검색
+Point II
+
+SELECT COUNT(*) FROM book;
+검색할 테이터에 *을 입력하면 모든 데이터 검색
+
+
+2. LIMIT
+LIMIT: 테이블에서 출력하고자 하는 데이터의 개수를 제한하는 명령어
+
+Point I
+
+SELECT * FROM book  LIMIT 5; --제한할 숫자
+book 테이블에서 데이터를 5개만 가져오기
+Point II
+
+SELECT * FROM book LIMIT 1, 5;
+첫 번째 행의 시작은 0
+LIMIT 1, 5는 2번째 데이터부터 5개를 가져오라는 의미
+
+
+3. SUM & AVG
+Point I
+SUM: 지정한 컬럼들의 값의 총합을 구해주는 내장함수
+
+SELECT SUM(math) FROM grade;
+Point II
+AVG: 지정한 컬럼들의 평균값을 구해주는 내장함수
+
+SELECT AVG(korean), AVG(english), AVG(math) FROM grade;
+
+
+4. MAX & MIN
+Point I
+MAX: 테이블에 존재하는 데이터에서 최댓값을 가져오는 내장함수 (숫자형 뿐만 아니라 문자형도 가능)
+
+SELECT MAX(korean) FROM grade;
+Point II
+MIN: 테이블에 존재하는 데이터에서 최솟값을 가져오는 내장함수 (숫자형 뿐만 아니라 문자형도 가능)
+
+SELECT MIN(english) FROM grade;
+
+
