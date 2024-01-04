@@ -1,0 +1,36 @@
+1. RDB와 NoSQL
+ - RDB는 SQL을 사용하기 위해 데이터를 구조화한다
+ - NoSQL은 데이터를 유연하게 저장할 수 있다
+ - NoSQL Document DB 외에 key-value, graph, large collection 등의 다양한 형태의 DB가 있다
+ - NoSQL은 데이터의 구조를 정의하지 않고 사용할 수 있는 장점이 있다
+
+2. MongoDB
+ - Database는 Collection이 저장되는 저장소이다
+ - Collection은 Document가 저장되는 공간이다
+ - Document는 MongoDB에 저장되는 데이터이다
+ - ObjectID는 난수와 함께 생성되는 Document의 유일한 키값이다
+ - 대용량 데이터를 처리하기 유리하다
+ - 스키마를 정의하는 과정 없이 빠르게 데이터베이스를 구축할 수 있다
+ - NoSQL 데이터베이스에 속한다
+
+3. Mongoose ODM을 사용하는 방법 순서
+  스키마 작성 - 모델 생성 - 데이터베이스 연결 - 모델 사용
+  - MongoDB의 Collection에 집중해 관리하도록 도와주는 패키지이다
+  - 간단하게 데이터베이스와 연결상태를 관리할 수 있다
+  - Code-Level에서 스키마를 정의하고 관리할 수 있다
+
+4. MongoDB Query 설명
+ - MongoDB의 쿼리는 기본적으로 $and 조건으로 연결된다
+ - $lt는 주어진 값보다 작은 값을 가진 Document를 검색한다
+ - {key: value} 를 사용하면 정확하게 일치하는 값을 가진 Document를 검색한다
+ - $ln을 사용하면 배열에 주어진 값 중 최소 한개의 일치하는 값을 가진 Document를 검색한다
+
+5. Mongoose의 Populate
+ - populate를 사용하면 SQL의 join과 유사한 기능을 수행할 수 있다
+ - populate를 사용하기 위해서는 모델 생성 시 사용한 이름으로 ref 값을 제공해야 한다
+ - populate는 MongoDB의 기능이 아닌 Mongoose에서 특별히 제공해 주는 함수이다
+ - populate는 aggregate 쿼리를 사용하지 않고,
+   Document에 저장된 ObjectID를 find하여 찾아진 Document를 Mongoose가 모델에 주입시켜주게 된다
+
+6. 
+
