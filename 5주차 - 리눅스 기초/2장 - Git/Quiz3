@@ -1,0 +1,62 @@
+1. Git
+ - Git은 여러 명이 효율적으로 협업하기 위한 툴이다
+ - Git은 오픈소스이므로 누구나 사용할 수 있다
+ - Git을 사용하면 여러 버전을 동시에 관리할 수 있어 데이터의 안정성을 보장된다
+
+
+2. svn에 비교하여 git이 갖는 특징
+ - Git은 SVN과 달리 각 개발자가 중앙 집중된 서버 저장소와 독립된 상태로 작업할 수 있다
+
+3. git에서 관리하는 세 영역
+ - 작업 영역(Working Directory)
+ - 준비 영역(Staging Area)
+ - 저장소(Repository)
+
+4. git version : git의 버전 확인
+
+git init : git저장소 생성
+
+git config --global user.name "<이름>" : git관련 작업 기록에 남는 이름 수정
+
+git config --global user.email "<이름>" : git관련 작업 기록에 남는 이름 수정
+
+git config --list : git 설정 확인
+
+5. 파일의 생명주기
+ - git add 명령을 거친 파일을 Staged 상태가 된다
+ - Untracked 파일을 Git에 추가하기 위해서는 add를 해야 한다
+ - Unmodified 파일은 항상 Git 저장소에 있는 파일과 내용이 같음을 보장할 수 있다
+ - Modified 파일들의 갱신된 내역을 저장소에 반영하기 위해 add와 commit의 과정을 거친다
+
+6. Git Branch
+ - Git Branch란 독립적으로 어떤 작업을 진행하기 위한 개념이다
+ - 각각의 Branch는 다른 Branch의 영향을 받지 않는다
+ - Branch 생성은 git branch <branch 명>으로 가능하다
+ - git reset --hard <커밋 해시> 를 사용하면 현재 브랜치를 특정한 커밋으로 이동할 수 있다
+
+7. madhatter branch와 elice branch를 서로 merge 하려면?
+   (현재 위치는 branch는 elice branch이다)
+   - git merge madhatter
+
+8. 원격저장소 복사 - git clone
+ - git clone 명령어를 실행하면 현재 폴더 내에 새로운 폴더를 하나 더 생성한다
+
+9. 원격 저장소를 로컬저장소와 연결하려면?
+ - git remote add origin (주소값)
+
+10. pull말고 다른 방식으로 저장소를 받아보자
+git fetch -> git merge origin/master
+
+
+pull은 로컬 저장소에 있는 master를 자동으로 원격저장소에 있는 내용과 합쳐주는 역할을 수행한다
+git pull이 이루어지지 않는 경우는 보통 다른사람이 올린 commit의 내용과
+내 컴퓨터에 존재하는 내용이 서로 충돌할 때 이다
+
+이러한 현상은 하나의 브랜치에서 여러 사람이 동시에 작업하면 발생할 확률이 높아지게 됩니다.
+
+따라서 여러 개의 브랜치를 나누고 각자 브랜치에서 작업한 후에 웹호스팅 서비스에 존재하는 merge request로 하나씩 합쳐가는 방식을 사용하면 충돌이 일어나는 것을 막을 수 있고 매번 새롭게 merge해야하는 수고를 덜 수가 있습니다.
+
+11. 변경된 내용을 원격저장소에 업데이트 하기
+ - git push origin master
+
+12. 
