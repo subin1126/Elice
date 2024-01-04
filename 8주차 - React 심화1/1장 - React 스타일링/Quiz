@@ -1,0 +1,39 @@
+1. React 애플리케이션 스타일링
+ - css를 잘 알수록 복잡한 ui를 구현하는 데 유리하다
+ - 자바스크립트로 스타일을 바꾸는 코드를 여러 줄 작성할 때,
+   브라우저는 각 줄을 수행하며 해당 DOM Element뿐만 아니라 주변의 모든 Element에 대한
+   스타일 재계산을 수행하게 된다
+   반면에 css class를 바꾸면 한번에 스타일을 변경하게 된다
+ - css에는 관련 스타일을 하나로 축약하는 코드가 많다
+   또한 cascading을 이용해 inherit할 수 있는 속성,
+   default 속성 등도 있다
+   이처럼 css 지식을 이용해 간결하고 효율적인 코드를 작성할 수 있다
+ - css-in-js로 스타일 코드를 작성하면 자바스크립트 문법을 그대로 활용할 수 있다
+ - css import로 사용하는 경우, 중복된 스타일을 사용하는 모든 컴포넌트에 해당 스타일이 적용된다
+ - css module은 namespace, className, hash순으로 중복된 className을 제거한다
+
+2. CSS와 Sass
+ - content-box의 경우, width 값에서는 padding, border의 길이를 포함하지 않는다
+ - 부모의 position 속성이 static이 아닌 다른 모든 값에 대해 자식의 top 속성이 적용된다
+ - em은 부모의 font size에 따라 사이즈가 조절된다
+
+3. CSS Flexbox
+ - flexbox의 속성은 flex container, flex item에 적용되는 속성들로 구분된다
+ - 하나의 row flexbox container 안에 다른 column flexbox containier를 구성해볼 수 있다
+ - 가로축 가운데 정렬은 justify-content:center를 사용한다
+
+4. css를 이용해 react 스타일링을 하는 방법에 대한 설명
+ - 하나의 css module 파일 안에 작성한 스타일은 하나의 파일 namespace로 관리한다
+ - css-in-js 방식은 별도의 css 파일을 만들지 않고 하나의 컴포넌트 파일 안에서 스타일을 작성하는 방법이다
+ - css-in-js 방식은 sass 문법을 활용할 수 있다
+ - 컴포넌트가 많지 않은 경우, 하나의 css 파일에 코드를 관리하는 것도 가능하다
+
+5. styled-components에 대한 설명
+ - 자바스크립트 파일 안에 스타일을 정의하고, React 컴포넌트처럼 활용하는 방법이다
+ - 자바스크립트 코드와 긴밀히 연계하여 다양한 코드를 작성할 수 있다
+ - 스타일 코드와 컴포넌트 코드 간의 결합을 나누고 싶을 때 유리하다
+ - tagged template literal 문법을 활용하여 작성한다
+ - styled-components는 별도의 css 파일을 만들지 않고,
+   하나의 파일 안에서 스타일을 관리하고 싶을 때 유리하다
+
+6. 

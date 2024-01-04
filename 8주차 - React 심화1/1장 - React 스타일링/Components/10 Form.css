@@ -1,0 +1,25 @@
+/*배웠던 내용을 활용하여 자유롭게 스타일링해보세요.*/
+.form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+  
+  .form input {
+    padding: 0.5rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .form .create-button {
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    margin-left: 0.5rem;
+  }
+  

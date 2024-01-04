@@ -1,0 +1,38 @@
+/* container 클래스를 Flexbox로 만들고, 안에 있는 아이템을 일정한 간격으로 띄우세요. */
+.container {
+    display: flex;
+    border: solid 2px black;
+    justify-content: space-between; /* box1, box2, box3 간격 일정하게 설정 */
+  }
+  
+  .container > div {
+    background-color: yellow;
+    margin: 4px 8px;
+    padding: 4px 8px;
+    border: solid 2px black;
+    text-align: center;
+  }
+  
+  /* 미디어쿼리를 이용해 768px 이하일 때 Flexbox를 다시 배치하세요. */
+  @media (max-width: 768px) {
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    #box1 {
+      align-self: flex-start;
+    }
+  
+    #box2 {
+      align-self: center;
+    }
+  
+    #box3 {
+      align-self: flex-end;
+    }
+  }
+  
+  
+  
