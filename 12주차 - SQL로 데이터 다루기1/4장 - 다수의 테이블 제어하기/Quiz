@@ -1,0 +1,94 @@
+1. sql에서 데이터를 그룹화하기 위해서는 group by 명령을 사용해야 한다
+
+2. sql에서 데이터 그룹에 조건을 적용하여 검색하기 위해서는 having을 사용해야 한다
+
+3. sql에서 두 테이블의 정보를 한번에 조회하기 위해서는 INNER JOIN 명령을 사용해야 한다
+
+4. sql에서 두 테이블의 정보를 한번에 조회하기 위해서는 JOIN 명령을 사용해야 하다
+
+  SQL에서 조건을 적용해 두 개의 테이블을 JOIN하기 위해서는 JOIN 뒤에 ON 명령을 사용한다
+
+5. sql에서 왼쪽 테이블의 모든 값을 포함하여 연결하기 위해서는 left join 명령을 사용해야 한다
+   INNER JOIN 은 두 데이터 중 겹치는 부분만 출력하는 명령이고,
+   OUTER JOIN 은 LEFT JOIN, RIGHT JOIN 같은 데이터가 겹치지 않아도
+   모두 출력하는 명령들을 의미한다
+
+6. sql에서 오른쪽 테이블의 모든 값을 포함하여 연결하기 위해서는 right join 명령을 사용해야 한다
+
+-------------------------------------------------------------
+
+다수의 테이블 제어하기
+4장을 마무리하신 여러분, 진심으로 축하드립니다!
+오늘도 많은 것을 배웠는데요 🤔
+잊기 전에 이번 장에서 배웠던 내용을 어서 복습하러 갑시다! 🤗
+
+
+
+1. 데이터 그룹 짓기
+Point I
+GROUP BY: 원하는 데이터끼리 그룹화하는 명령어
+
+SELECT user_id, COUNT(*) --검색할 컬럼
+FROM rental --테이블
+GROUP BY user_id; --그룹의 기준 컬럼
+rental 테이블에서 user_id가 같은 데이터끼리 그룹화
+Point II
+GROUP BY 활용
+
+SELECT user_id, SUM(column) FROM rental GROUP BY user_id;
+--user_id가 같은 열에서 컬럼의 내용을 다 더한 값을 출력
+
+SELECT user_id, AVG(column) FROM rental GROUP BY user_id;
+--user_id가 같은 열의 컬럼의 평균을 출력
+
+SELECT user_id, MAX(column) FROM rental GROUP BY user_id;
+--user_id가 같은 열에서 해당 컬럼의 가장 큰 데이터를 출력
+
+SELECT user_id, MIN(column) FROM rental GROUP BY user_id;
+--user_id가 같은 열에서 해당 컬럼의 가장 작은 데이터를 출력
+
+
+2. 데이터 그룹에 조건 적용하기
+HAVING: 데이터 그룹에 조건을 적용하여 검색하는 명령어로, GROUP BY와 함께 사용
+
+SELECT user_id, COUNT(*) --검색할 컬럼
+FROM rental --테이블
+GROUP BY user_id --그룹의 기준 컬럼
+HAVING COUNT(user_id) > 1; --조건
+rental 테이블에서 user_id가 같은 1개 초과의 데이터가 몇 개 있는지 검색
+
+
+3. 여러 테이블에서 조회하기
+Point I
+INNER JOIN: 두 테이블의 정보를 한 번에 조회하는 명령어 (두 테이블 중 겹치는 부분만 출력)
+
+SELECT * FROM rental
+INNER JOIN user; --연결할 테이블
+Point II
+ON: 조건을 적용해 두 개의 테이블을 조회할 때 사용하는 명령어
+
+SELECT * FROM rental
+INNER JOIN user
+ON user.id = rental.user_id; --연결 조건 컬럼
+rental 테이블과 user 테이블의 정보 중 user_id가 같은 것끼리 연결
+테이블.컬럼명으로 구분
+
+
+4. LEFT JOIN & RIGHT JOIN
+Point I
+LEFT JOIN: 왼쪽 테이블의 모든 값을 포함하여 연결하는 명령어로, 왼쪽 데이터와 겹치는 부분을 출력
+
+SELECT * FROM user
+LEFT JOIN rental
+ON user.id = rental.user_id;
+user 테이블을 모두 출력하되, 모든 user 테이블의 user_id와 rental 테이블의 id가 겹치도록 합친다.
+Point II
+RIGHT JOIN: 오른쪽 테이블의 모든 값을 포함하여 연결하는 명령어로, 오른쪽 데이터와 겹치는 부분 출력
+
+SELECT * FROM user
+RIGHT JOIN rental
+ON user.id = rental.user_id;
+rental 테이블을 모두 출력하되, 모든 rental 테이블의 user_id와 user 테이블의 id가 겹치도록 합친다.
+
+
+
