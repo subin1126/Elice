@@ -1,0 +1,49 @@
+JSX 개념과 기본 문법 소개
+JSX 개념: XML 또는 HTML 과 같이 React에서 사용할수 있는 JavaScript를 확장한 문법
+
+확장자: .jsx => .js 사용하는 추세
+더 자세한 문법 소개는 공식 ko.reactjs.org의 문서를 참고하십시오.
+
+JSX 필요성
+JSX는 컴파일 되면서 최적화되므로 빠르다.
+
+Type-safe 하다.
+=> 정의되지 않거나 예측 불가능한 결과를 나타내지 않는다.
+
+React 요소를 만들기 때문에 JavaScript 코드 안에서 UI 관련 작업을 할 때 시각적으로 편리하다.
+
+JSX 사용법 & 규칙
+태그를 /> 를 이용해 꼭 닫아준다
+<input type='text'/>
+무조건 1개의 엘리먼트를 반환하기
+
+→ 컴포넌트에서는 반환할 수 있는 엘리먼트는 1개이며 이때 Container Element 가 필요하다.
+
+// No Error
+return(
+  <div>
+    <h1>안녕하세요! </h1>
+    <input type='text'/>
+  </div>
+);
+// Syntax Error 발생
+return(
+<h1>안녕하세요! </h1>
+ <input type='text'/>
+);
+React의 Inline CSS를 적용할때는 string 형식이 아닌 Object를 사용하기
+
+function App() {
+
+    const styles = {
+        color: 'blue',
+        fontSize: '20px'
+    };
+
+    return (
+    // key가 camelCase인 Object를 사용해서 style 적용
+        <div>
+            <p style = {styles}>I am blue</p>
+        </div>
+    );
+}

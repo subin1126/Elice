@@ -1,0 +1,47 @@
+/* 
+ 1. `guide.jsx` 컴포넌트가 유튜브 메인페이지의 왼쪽 사이드바와 비슷하지도록 다음 3가지를 고려해서 `guide.css`를 작성하세요.
+ */
+
+ ul {
+    padding: 0;
+    margin: 0;
+  }
+  
+  /*모든 버튼들을 정렬*/
+  .asideBtns {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /*li태그 내 개개의 버튼의 크기를 결정하고 정렬
+  rem, em : 상위 요소의 크기에 몇배인지, 상대적으로 크기를 정하는 단위
+  rem: 문서의 최상위 요소 : html크기의 몇배
+  em: 현재 자신의 컴포넌트의 상위요소의 크기에 몇배인지*/
+  .asideBtn {
+    width: 2rem;
+    padding: 1rem;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+  }
+  .asideBtn:hover {
+    background-color: #252525;
+  }
+  
+  /*span 태그 내의 폰트의 속성을 결정*/
+  .imgName {
+    font-size: 0.5rem;
+    padding: 0.5em;
+    color: #fff;
+  }
+  
+  /*이미지들의 크기와 윛*/
+  .homeImg,
+  .compassImg,
+  .subscribeImg,
+  .folderImg {
+    filter: brightness(0) invert(1);
+    width: 1.2rem;
+    height: 1.2rem;
+  }
+  
