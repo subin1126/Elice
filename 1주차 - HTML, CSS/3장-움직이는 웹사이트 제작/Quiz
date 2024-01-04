@@ -1,0 +1,38 @@
+1. css transform 관련 속성에 대한 설명
+
+.elice {
+    transform: rotate(45deg);
+    transform: scale(2, 3);
+}
+
+- rotate(45deg) : 입력한 각도만큼 회전, 음수도 입력 가능하다
+- .elice : class 선택자를 사용한다
+- scale(2, 3) : 숫자는 비율을 의미, width를 2배 height를 3배 확대한다
+
+
+2. 마우스를 올리면 1초 후에 width 값이 300px로, 2초 동안, 속도 일정하게 변하는 애니메이션 효과를 코드로 표현
+
+.transition{
+    transition: width 2s linear 1s;
+}
+
+.transition: hover {
+    width: 300px;
+}
+
+3. animation 속성에 대한 설명
+- animation-delay : 애니메이션이 시작하기 전 딜레이할 시간을 설정하는 속성
+- animation-timing-fuction : 애니메이션 속도 곡선을 제어하는 속성
+- animation-duration : 애니메이션이 실행되는 시간을 설정하는 속성
+- animation-iteration-count : 애니메이션이 재생되는 횟수를 제한하는 속성
+
+4. 
+.box1 {
+    animation : rotation 1500ms linear infinite alternate;
+}
+
+@keyframes rotation {
+    from { transform: rotate(-10deg); }
+    to { transform: rotate(10deg); }
+}
+
