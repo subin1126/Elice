@@ -1,0 +1,24 @@
+/* 지시사항을 참고하여 코드를 작성하세요 */
+
+/* header class에 총 4개의 속성을 추가해 주세요 */
+.header {
+    font-size: 80px;
+    font-weight: bold;
+    color : white;
+    background-color: blue;
+  }
+  
+  /* paragraph class에 총 3개의 속성을 추가해 주세요 */
+  .paragraph {
+      font-size: 20px;
+      font-style: italic;
+      color:green;
+  }
+  
+  /* list class에 총 3개의 속성을 추가해 주세요 */
+  .list {
+    font-size: 50px;
+    font-family: Arial, sans-serif;
+    color: red;
+  }
+  

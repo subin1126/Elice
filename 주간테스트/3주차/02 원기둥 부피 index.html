@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="index.css">
+    <script src="index.js" defer></script>
+  </head>
+  <body>
+    <div>
+      <p>원기둥의 부피 계산기</p>
+      <form id="checkVolume" action="" method="post" onsubmit="calculateVolume()">
+        <label for="height" class="label">높이(h)</label>
+        <input type="number" name="height" id="height"/>
+        
+        <label for="radius" class="label">반지름(r)</label>
+        <input type="number" name="radius" id="radius"/>
+       
+        <br />
+        <br />
+        <button id="calc">부피 계산하기</button>
+      </form>
+      <h3 id="volume"></h3>        
+    </div>
+  </body>
+</html>
