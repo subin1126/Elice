@@ -1,0 +1,19 @@
+1. 네비게이션 기능을 구현하기 위한 요소에 대한 설명
+ - preventDefault() : 현재 이벤트의 기본 동작을 중지시킬 때 사용된다
+ - querySelector() : 1개의 태그를 css 선택자를 이용하여 가져온다
+ - getAttribute() : 태그가 가지고 있는 속성의 속성값을 가져온다
+ - offsestTop : 선택된 영역의 상단까지의 거리를 절대 좌표로 반환하는 메서드
+ - window.scrollTo() : 원하는 위치로 스크롤 이동을 시킬 때 사용하는 메서드
+
+2. setInterval()
+  - 자바스크립트에서 일정 시간마다 반복적으로 코드를 실행하고자 할 때 사용됨
+
+3. classList.add() : 선택된 태그의 특정 클래스를 추가한다
+
+4. 이미지 슬라이드 기능을 구현하기 위한 요소 속성
+ - nextElementSibling : 다음 요소를 선택
+ - parentElement : 부모 요소를 선택
+ - firstElementChild : 첫번째 자식 요소를 선택
+ - last : 이미지 슬라이드 기능을 구현하기 위해 dom 요소가 제공하는 기능 중 last는 존재하지 않는다
+
+5. 
