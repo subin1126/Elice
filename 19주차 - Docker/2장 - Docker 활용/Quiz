@@ -1,0 +1,43 @@
+1. docker container ls -a
+ - 내려간 컨테이너를 확인하는 명령
+
+2. docker rmi nginx로 이미지를 지우려고 했을 때
+   지워지지 않는 이유
+  - 종료된 컨테이너 중 nginx 이미지를 사용하는 컨테이너가 있는 경우
+
+오답
+nginx를 프로세스로 띄운 경우
+ - nginx를 프로세스로 띄웠다면 도커 이미지와는 관련이 없다
+nginx 이미지로 띄운 컨테이너가 없는 경우
+ - 이미지로 띄운 컨테이너가 없는 것은 지워지지 않는 이유가 되지 않는다
+nginx 이미지를 Dockerfile로 만든 경우
+ - Dockerfile로 이미지를 만들었다고 해도 지워지지 않는 이유가 될 수 없다
+
+3. Dockerfile
+ - Docker image를 어떻게 만들 것인지 정하는 기능
+ - 어떤 Linux 이미지를 이용할 것인지 정하는 기능
+ - 컨테이너를 실행할 때 실행할 명령어를 지정하는 기능
+
+ - Dockerfile에 Docker 컨테이너를 실행하는 기능은 없다
+
+4. Dockerfile을 작성할 때 쓰는 CMD에 대한 설명으로 옳은 것
+ - container가 실행될 때 실행하는 명령어
+ - image를 빌드할 때 실행되는 명령어는 RUN 뒤에 온다
+
+5. Dockerfile에서 FROM절의 기능으로 옳은 것
+ - 해당 Docker의 이미지를 지정한다
+
+WORKDIR : 컨테이너가 실행되었을 때 시작 점을 지정한다
+CMD : 컨테이너가 실행되었을 때 명령어를 실행해준다
+RUN : 이미지르르 만들 때 실행하는 명령어
+
+6. copy 명령에 대한 설명으로 옳은 것
+COPY . /app
+- docker duild를 실행하는 곳의 파일을 /app으로 복사한다
+/app은 컨테이너 루트가 아니고 루트에 있는 /app이라는 디렉토리
+
+7. 빌드 명령어로 옳은 것
+docker build -t flask-app
+
+-d 는 데몬으로 띄우는 옵션
+맨 뒤에 .을 붙여주지 않으면 빌드가 안된다
