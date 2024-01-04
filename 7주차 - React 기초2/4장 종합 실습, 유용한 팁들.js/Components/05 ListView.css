@@ -1,0 +1,62 @@
+.listview {
+    display: block;
+    position: relative;
+    min-height: 120px;
+    margin-bottom: 8px;
+    background-color: #ffffff;
+    padding: 16px;
+    border-radius: 16px;
+  }
+  
+  .listview ol {
+    margin: 0;
+    padding-left: 2em;
+  }
+  
+  .listview ol li {
+    clear: both;
+    margin-bottom: 8px;
+  }
+  
+  .listview ol li span {
+    float: left;
+    font-size: 16px;
+    position: relative;
+  }
+  /**/
+  
+  .listview ol li span::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transition: width 0.2s ease-in-out;
+    width: 0%;
+    height: 3px;
+    background-color: #524fa1;
+  }
+  /*after : 가짜 요소, 가상 요소
+  완료 눌렀을 때 지이ㅣ익 줄 그이는거 구현한거임
+  ease-in-out : transition timing
+  content: 가상 element에 내용을 채워줄 텍스트를 입력하는 곳
+  텍스트 표시할 필요없어서 '' 으로 놔둠 뭐 입력해보센
+  content 빈값이라도 안넣어주면 after가 렌더링이 안됨 둘이 짝꿍임*/
+  
+  .listview ol li.completed span::after {
+    width: 100%;
+  }
+  
+  .listview ol li button {
+    float: right;
+    margin-left: 4px;
+    cursor: pointer;
+    border: none;
+    color: #ffffff;
+    background-color: #524fa1;
+    padding: 4px 8px;
+  }
+  
+  .listview ol li button.remove {
+    background-color: #fa466a;
+  }
+  
